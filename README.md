@@ -27,4 +27,59 @@ The block diagram of the breath analyser is given below.
 
 ![block diagram](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/dfaae820-f835-43d1-bda9-d868ebf83106)
 
+# C program of the Breathe Analyser
+
+```
+
+int main()
+{
+	int sensor;//bit 0
+	int buzzer;//bit 1
+	int clk_freq = 10000000;
+	int shift=0xFFFFFFF2;
+	
+	buzzer = 0;
+	
+	asm(
+	"and x30, x30, %1\n\t"
+	"or x30, x30, %0\n\t"
+	:"=r"(buzzer)
+	:"r"(shift));
+	for(int i=0;i<300000000;i++);// ranom delay to initialize MQ sensor
+	
+	while(1)
+	{
+		asm(
+		"addi x10, x30, 0\n\t"
+		"and %0, x10, 1\n\t"
+		:"=r"(sensor)); 
+		
+		if(sensor==1)//presence of alcohol detected buzzer on
+		{
+			buzzer = 1;
+			
+			asm(
+			"and x30, x30, %1\n\t"
+		    	"or x30, x30, %0\n\t"
+		    	:"=r"(buzzer)
+			:"r"(shift));
+			for(int i=0;i<1000000;i++);
+		}
+		else//presence of alcohol not detected buzzer off
+		{
+			buzzer = 0;
+			
+			asm(
+			"and x30, x30, %1\n\t"
+		    	"or x30, x30, %0\n\t"
+		    	:"=r"(buzzer)
+			:"r"(shift));
+			for(int i=0;i<1000000;i++);
+		}
+	}
+}
+
+```
+
+
 
