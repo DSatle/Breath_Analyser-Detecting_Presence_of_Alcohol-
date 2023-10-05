@@ -186,6 +186,13 @@ mv
 bne
 
 ```
+![distinct code](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/834f4034-60d2-4c05-9660-928feb210f6a)
+
+# Output of the C program is shown below
+
+![output trail](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/29d77cfc-01af-460d-bc74-e443109d0dc8)
+
+
 
 
 
