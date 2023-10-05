@@ -168,5 +168,24 @@ Disassembly of section .text:
   e8:	f71ff06f          	j	58 <.L10>
 
 ```
+# Distinctive assembly code instructions
+
+```
+Number of different instructions: 11
+List of unique instructions:
+add
+sw
+lui
+li
+lw
+and
+or
+j
+bge
+mv
+bne
+
+```
+
 
 
