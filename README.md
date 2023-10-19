@@ -192,6 +192,38 @@ bne
 
 ![output trail](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/29d77cfc-01af-460d-bc74-e443109d0dc8)
 
+# Functional Simulation's Conclusive Data
+
+In the image below, it's evident that the ID_instructions' content is incrementing in a manner that mirrors the progression of the assembly code, aligning with the PC's execution increment
+
+![3](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/d35501eb-488f-4644-a3f8-b7f69d190f2a)
+
+The image provided below demonstrates that when the "write done" signal is in a low state, the operation remains unexecuted since the instruction isn't fetched. As a result, any input variation does not affect the output, and it remains constant.
+
+![2](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/5b49e79d-1468-4324-a9bc-8f91b2a04444)
+
+The image reveals a variation in the output corresponding to changes in the input. This is attributed to the "write done" signal being in a high state, indicating that an instruction has been successfully fetched, and as a result, the operation is executed.
+When the input is in a high state, it signifies that the alcohol level surpasses the allowable limit, causing an increase in the output signal and subsequently turning on the buzzer.
+
+![1](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/ab849e74-53a4-431e-a3c5-dcc413741b79)
+
+# Word of thanks
+
+I want to extend my appreciation to Kunal Ghosh(Founder & CEO VSD) for affording me the opportunity to learn about the ASIC design flow through his provision of high-quality educational materials.
+
+I would also like to express my gratitude to Mayank Kabra for his invaluable contributions and insights during the project's completion.
+
+# References
+
+* https://lastminuteengineers.com/mq3-alcohol-sensor-arduino-tutorial/
+* https://github.com/SakethGajawada/RISCV-GNU
+* Pruthvi Parate, Colleague, IIIT Bangalore
+* Bhargav DV, Colleague, IIIT Bangalore
+* Niharika Vulchi, IIIT Bangalore
+
+
+
+
 
 
 
