@@ -159,22 +159,24 @@ Disassembly of section .text:
 # Distinctive assembly code instructions
 
 ```
-Number of different instructions: 11
+Number of different instructions: 12
 List of unique instructions:
-add
-sw
-lui
-li
-lw
+mv
 and
+addi
+li
+bge
+andi
 or
 j
 bge
-mv
+lw
 bne
+lui
 
 ```
-![distinct code](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/834f4034-60d2-4c05-9660-928feb210f6a)
+
+![new_diff_int](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/ba223697-e781-4a62-a5f4-4402e340e357)
 
 # Output of the C program is shown below
 
