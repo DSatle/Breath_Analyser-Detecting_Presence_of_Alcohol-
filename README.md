@@ -30,7 +30,6 @@ The block diagram of the breath analyser is given below.
 # C program of the Breathe Analyser
 
 ```
-
 int main()
 {
 	int sensor;//bit 0
@@ -40,133 +39,122 @@ int main()
 	
 	buzzer = 0;
 	
-	asm(
+	asm volatile(
 	"and x30, x30, %1\n\t"
 	"or x30, x30, %0\n\t"
-	:"=r"(buzzer)
-	:"r"(shift));
-	for(int i=0;i<300000000;i++);// ranom delay to initialize MQ sensor
+	:
+	:"r"(buzzer),"r"(shift)
+	:"x30"
+	);
+	for(int i=0;i<300;i++);// random delay to initialize MQ3 sensor
 	
 	while(1)
 	{
-		asm(
+		asm volatile(
 		"addi x10, x30, 0\n\t"
-		"and %0, x10, 1\n\t"
-		:"=r"(sensor)); 
+		"andi %0, x10, 1\n\t"
+		:"=r"(sensor)
+		:
+		:"x10"
+		); 
 		
-		if(sensor==1)//presence of alcohol detected buzzer on
+		if(sensor==1)//Alcohol detected buzzer on
 		{
 			buzzer = 1;
 			
-			asm(
+			asm volatile(
 			"and x30, x30, %1\n\t"
 		    	"or x30, x30, %0\n\t"
-		    	:"=r"(buzzer)
-			:"r"(shift));
-			for(int i=0;i<1000000;i++);
+		    	:
+			:"r"(buzzer),"r"(shift)
+			:"x30"
+			);
+			for(int i=0;i<100;i++);
 		}
-		else//presence of alcohol not detected buzzer off
+		else//Alcohol not detected buzzer off
 		{
 			buzzer = 0;
 			
-			asm(
+			asm volatile(
 			"and x30, x30, %1\n\t"
 		    	"or x30, x30, %0\n\t"
-		    	:"=r"(buzzer)
-			:"r"(shift));
-			for(int i=0;i<1000000;i++);
+		    	:
+			:"r"(buzzer),"r"(shift)
+			:"x30"
+			);
+			for(int i=0;i<100;i++);
 		}
 	}
+	return(0);
 }
-
 ```
 
 
 # Assembly level Program
 
 ```
-output.o:     file format elf32-littleriscv
+c.out:     file format elf32-littleriscv
 
 
 Disassembly of section .text:
 
-00000000 <main>:
-   0:	fd010113          	add	sp,sp,-48
-   4:	02812623          	sw	s0,44(sp)
-   8:	03010413          	add	s0,sp,48
-   c:	009897b7          	lui	a5,0x989
-  10:	68078793          	add	a5,a5,1664 # 989680 <.L8+0x9895a8>
-  14:	fef42023          	sw	a5,-32(s0)
-  18:	ff200793          	li	a5,-14
-  1c:	fcf42e23          	sw	a5,-36(s0)
-  20:	fc042c23          	sw	zero,-40(s0)
-  24:	fdc42783          	lw	a5,-36(s0)
-  28:	00ff7f33          	and	t5,t5,a5
-  2c:	00ff6f33          	or	t5,t5,a5
-  30:	fcf42c23          	sw	a5,-40(s0)
-  34:	fe042623          	sw	zero,-20(s0)
-  38:	0100006f          	j	48 <.L2>
-
-0000003c <.L3>:
-  3c:	fec42783          	lw	a5,-20(s0)
-  40:	00178793          	add	a5,a5,1
-  44:	fef42623          	sw	a5,-20(s0)
-
-00000048 <.L2>:
-  48:	fec42703          	lw	a4,-20(s0)
-  4c:	11e1a7b7          	lui	a5,0x11e1a
-  50:	2ff78793          	add	a5,a5,767 # 11e1a2ff <.L8+0x11e1a227>
-  54:	fee7d4e3          	bge	a5,a4,3c <.L3>
-
-00000058 <.L10>:
-  58:	000f0513          	mv	a0,t5
-  5c:	00157793          	and	a5,a0,1
-  60:	fcf42a23          	sw	a5,-44(s0)
-  64:	fd442703          	lw	a4,-44(s0)
-  68:	00100793          	li	a5,1
-  6c:	04f71263          	bne	a4,a5,b0 <.L4>
-  70:	00100793          	li	a5,1
-  74:	fcf42c23          	sw	a5,-40(s0)
-  78:	fdc42783          	lw	a5,-36(s0)
-  7c:	00ff7f33          	and	t5,t5,a5
-  80:	00ff6f33          	or	t5,t5,a5
-  84:	fcf42c23          	sw	a5,-40(s0)
-  88:	fe042423          	sw	zero,-24(s0)
-  8c:	0100006f          	j	9c <.L5>
-
-00000090 <.L6>:
-  90:	fe842783          	lw	a5,-24(s0)
-  94:	00178793          	add	a5,a5,1
-  98:	fef42423          	sw	a5,-24(s0)
-
-0000009c <.L5>:
-  9c:	fe842703          	lw	a4,-24(s0)
-  a0:	000f47b7          	lui	a5,0xf4
-  a4:	23f78793          	add	a5,a5,575 # f423f <.L8+0xf4167>
-  a8:	fee7d4e3          	bge	a5,a4,90 <.L6>
-  ac:	fadff06f          	j	58 <.L10>
-
-000000b0 <.L4>:
-  b0:	fc042c23          	sw	zero,-40(s0)
-  b4:	fdc42783          	lw	a5,-36(s0)
-  b8:	00ff7f33          	and	t5,t5,a5
-  bc:	00ff6f33          	or	t5,t5,a5
-  c0:	fcf42c23          	sw	a5,-40(s0)
-  c4:	fe042223          	sw	zero,-28(s0)
-  c8:	0100006f          	j	d8 <.L8>
-
-000000cc <.L9>:
-  cc:	fe442783          	lw	a5,-28(s0)
-  d0:	00178793          	add	a5,a5,1
-  d4:	fef42223          	sw	a5,-28(s0)
-
-000000d8 <.L8>:
-  d8:	fe442703          	lw	a4,-28(s0)
-  dc:	000f47b7          	lui	a5,0xf4
-  e0:	23f78793          	add	a5,a5,575 # f423f <.L8+0xf4167>
-  e4:	fee7d4e3          	bge	a5,a4,cc <.L9>
-  e8:	f71ff06f          	j	58 <.L10>
-
+00010054 <main>:
+   10054:	fd010113          	addi	sp,sp,-48
+   10058:	02812623          	sw	s0,44(sp)
+   1005c:	03010413          	addi	s0,sp,48
+   10060:	009897b7          	lui	a5,0x989
+   10064:	68078793          	addi	a5,a5,1664 # 989680 <__global_pointer$+0x977d4c>
+   10068:	fef42023          	sw	a5,-32(s0)
+   1006c:	ff200793          	li	a5,-14
+   10070:	fcf42e23          	sw	a5,-36(s0)
+   10074:	fc042c23          	sw	zero,-40(s0)
+   10078:	fd842783          	lw	a5,-40(s0)
+   1007c:	fdc42703          	lw	a4,-36(s0)
+   10080:	00ef7f33          	and	t5,t5,a4
+   10084:	00ff6f33          	or	t5,t5,a5
+   10088:	fe042623          	sw	zero,-20(s0)
+   1008c:	0100006f          	j	1009c <main+0x48>
+   10090:	fec42783          	lw	a5,-20(s0)
+   10094:	00178793          	addi	a5,a5,1
+   10098:	fef42623          	sw	a5,-20(s0)
+   1009c:	fec42703          	lw	a4,-20(s0)
+   100a0:	12b00793          	li	a5,299
+   100a4:	fee7d6e3          	bge	a5,a4,10090 <main+0x3c>
+   100a8:	000f0513          	mv	a0,t5
+   100ac:	00157793          	andi	a5,a0,1
+   100b0:	fcf42a23          	sw	a5,-44(s0)
+   100b4:	fd442703          	lw	a4,-44(s0)
+   100b8:	00100793          	li	a5,1
+   100bc:	04f71063          	bne	a4,a5,100fc <main+0xa8>
+   100c0:	00100793          	li	a5,1
+   100c4:	fcf42c23          	sw	a5,-40(s0)
+   100c8:	fd842783          	lw	a5,-40(s0)
+   100cc:	fdc42703          	lw	a4,-36(s0)
+   100d0:	00ef7f33          	and	t5,t5,a4
+   100d4:	00ff6f33          	or	t5,t5,a5
+   100d8:	fe042423          	sw	zero,-24(s0)
+   100dc:	0100006f          	j	100ec <main+0x98>
+   100e0:	fe842783          	lw	a5,-24(s0)
+   100e4:	00178793          	addi	a5,a5,1
+   100e8:	fef42423          	sw	a5,-24(s0)
+   100ec:	fe842703          	lw	a4,-24(s0)
+   100f0:	06300793          	li	a5,99
+   100f4:	fee7d6e3          	bge	a5,a4,100e0 <main+0x8c>
+   100f8:	fb1ff06f          	j	100a8 <main+0x54>
+   100fc:	fc042c23          	sw	zero,-40(s0)
+   10100:	fd842783          	lw	a5,-40(s0)
+   10104:	fdc42703          	lw	a4,-36(s0)
+   10108:	00ef7f33          	and	t5,t5,a4
+   1010c:	00ff6f33          	or	t5,t5,a5
+   10110:	fe042223          	sw	zero,-28(s0)
+   10114:	0100006f          	j	10124 <main+0xd0>
+   10118:	fe442783          	lw	a5,-28(s0)
+   1011c:	00178793          	addi	a5,a5,1
+   10120:	fef42223          	sw	a5,-28(s0)
+   10124:	fe442703          	lw	a4,-28(s0)
+   10128:	06300793          	li	a5,99
+   1012c:	fee7d6e3          	bge	a5,a4,10118 <main+0xc4>
+   10130:	f79ff06f          	j	100a8 <main+0x54>
 ```
 # Distinctive assembly code instructions
 
