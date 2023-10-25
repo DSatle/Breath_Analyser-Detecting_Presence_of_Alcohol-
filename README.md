@@ -30,70 +30,102 @@ The block diagram of the breath analyser is given below.
 # C program of the Breathe Analyser
 
 ```
-int main()
-{
-	int sensor;//bit 0
-	int buzzer;//bit 1
-	int clk_freq = 10000000;
-	int shift=0xFFFFFFF2;
-	
-	buzzer = 0;
-	
-	asm volatile(
-	"and x30, x30, %1\n\t"
-	"or x30, x30, %0\n\t"
-	:
-	:"r"(buzzer),"r"(shift)
-	:"x30"
-	);
-	for(int i=0;i<300;i++);// random delay to initialize MQ3 sensor
-	
-	while(1)
-	{
+// Function to analyse whether the given person is drunk or not
+//#include<stdio.h>
+int main()  {
+
+    int sensor_status;
+    int buzzer;
+    int masking;
+    int i;
+    int sensor_state;
+    int Alcohol0,Alcohol1;
+    
+    
+        //for (int j=0; j<15;j++) {
+        while(1){
+        
+	/*
+       if(j<10)
+			sensor_status=1;
+	else
+			sensor_status=0;
+		*/	
+
 		asm volatile(
-		"addi x10, x30, 0\n\t"
-		"andi %0, x10, 1\n\t"
-		:"=r"(sensor)
-		:
-		:"x10"
-		); 
-		
-		if(sensor==1)//Alcohol detected buzzer on
-		{
-			buzzer = 1;
-			
-			asm volatile(
-			"and x30, x30, %1\n\t"
-		    	"or x30, x30, %0\n\t"
-		    	:
-			:"r"(buzzer),"r"(shift)
-			:"x30"
-			);
-			for(int i=0;i<100;i++);
-		}
-		else//Alcohol not detected buzzer off
-		{
-			buzzer = 0;
-			
-			asm volatile(
-			"and x30, x30, %1\n\t"
-		    	"or x30, x30, %0\n\t"
-		    	:
-			:"r"(buzzer),"r"(shift)
-			:"x30"
-			);
-			for(int i=0;i<100;i++);
-		}
-	}
-	return(0);
+		"or x30, x30, %1\n\t"
+		"andi %0, x30, 0x01\n\t"
+		: "=r" (sensor_state)
+		: "r" (sensor_status)
+		: "x30"
+		);
+	
+
+ 
+       
+        if (sensor_status == 0) {
+            // If alcohol is below the permissable limit, set the buzzer control register to 0 (buzzer off)
+            masking=0xFFFFFFFD;
+          //  printf("No alohol detected \n");
+          buzzer = 0; 
+       
+            asm volatile(
+            "and x30,x30, %0\n\t"     // Load immediate 1 into x30
+            "ori x30, x30,2"                 // output at 2nd bit , keeps buzzer in off
+            :
+            :"r"(masking)
+            :"x30"
+            );
+            asm volatile(
+	    	"addi %0, x30, 0\n\t"
+	    	:"=r"(Alcohol0)
+	    	:
+	    	:"x30"
+	    	);
+    	//printf("Alcohol0 = %d\n",Alcohol0);
+            
+      
+        } 
+        else {
+            // If Alcohol is above the permissible limit, set the buzzer control register to 1 (buzzer on)
+            masking=0xFFFFFFFD;
+             buzzer = 1; 
+          //  printf("Alcohol presence detected \n ");
+            asm volatile( 
+            "and x30,x30, %0\n\t"     // Load immediate 1 into x30
+            "ori x30, x30,0"            //// output at 2nd bit , switches on the buzzer
+            :
+            :"r"(masking)
+            :"x30"
+        );
+        asm volatile(
+	    	"addi %0, x30, 0\n\t"
+	    	:"=r"(Alcohol1)
+	    	:
+	    	:"x30"
+	    	);
+	 //printf("Alcohol1 = %d\n",Alcohol1);
+        }
+
+ // printf("buzzer=%d \n", buzzer);   
+
 }
+
+return 0;
+}
+
 ```
+# Assembly level conversion
+
+riscv64-unknown-elf-gcc -march=rv64i -mabi=lp64 -ffreestanding -o out Alcohol.c
+spike pk out
+
 
 
 # Assembly level Program
 
 ```
-c.out:     file format elf32-littleriscv
+out:     file format elf32-littleriscv
 
 
 Disassembly of section .text:
@@ -102,59 +134,31 @@ Disassembly of section .text:
    10054:	fd010113          	addi	sp,sp,-48
    10058:	02812623          	sw	s0,44(sp)
    1005c:	03010413          	addi	s0,sp,48
-   10060:	009897b7          	lui	a5,0x989
-   10064:	68078793          	addi	a5,a5,1664 # 989680 <__global_pointer$+0x977d4c>
-   10068:	fef42023          	sw	a5,-32(s0)
-   1006c:	ff200793          	li	a5,-14
-   10070:	fcf42e23          	sw	a5,-36(s0)
-   10074:	fc042c23          	sw	zero,-40(s0)
-   10078:	fd842783          	lw	a5,-40(s0)
-   1007c:	fdc42703          	lw	a4,-36(s0)
-   10080:	00ef7f33          	and	t5,t5,a4
-   10084:	00ff6f33          	or	t5,t5,a5
-   10088:	fe042623          	sw	zero,-20(s0)
-   1008c:	0100006f          	j	1009c <main+0x48>
-   10090:	fec42783          	lw	a5,-20(s0)
-   10094:	00178793          	addi	a5,a5,1
-   10098:	fef42623          	sw	a5,-20(s0)
-   1009c:	fec42703          	lw	a4,-20(s0)
-   100a0:	12b00793          	li	a5,299
-   100a4:	fee7d6e3          	bge	a5,a4,10090 <main+0x3c>
-   100a8:	000f0513          	mv	a0,t5
-   100ac:	00157793          	andi	a5,a0,1
-   100b0:	fcf42a23          	sw	a5,-44(s0)
-   100b4:	fd442703          	lw	a4,-44(s0)
-   100b8:	00100793          	li	a5,1
-   100bc:	04f71063          	bne	a4,a5,100fc <main+0xa8>
-   100c0:	00100793          	li	a5,1
-   100c4:	fcf42c23          	sw	a5,-40(s0)
-   100c8:	fd842783          	lw	a5,-40(s0)
-   100cc:	fdc42703          	lw	a4,-36(s0)
-   100d0:	00ef7f33          	and	t5,t5,a4
-   100d4:	00ff6f33          	or	t5,t5,a5
-   100d8:	fe042423          	sw	zero,-24(s0)
-   100dc:	0100006f          	j	100ec <main+0x98>
-   100e0:	fe842783          	lw	a5,-24(s0)
-   100e4:	00178793          	addi	a5,a5,1
-   100e8:	fef42423          	sw	a5,-24(s0)
-   100ec:	fe842703          	lw	a4,-24(s0)
-   100f0:	06300793          	li	a5,99
-   100f4:	fee7d6e3          	bge	a5,a4,100e0 <main+0x8c>
-   100f8:	fb1ff06f          	j	100a8 <main+0x54>
-   100fc:	fc042c23          	sw	zero,-40(s0)
-   10100:	fd842783          	lw	a5,-40(s0)
-   10104:	fdc42703          	lw	a4,-36(s0)
-   10108:	00ef7f33          	and	t5,t5,a4
-   1010c:	00ff6f33          	or	t5,t5,a5
-   10110:	fe042223          	sw	zero,-28(s0)
-   10114:	0100006f          	j	10124 <main+0xd0>
-   10118:	fe442783          	lw	a5,-28(s0)
-   1011c:	00178793          	addi	a5,a5,1
-   10120:	fef42223          	sw	a5,-28(s0)
-   10124:	fe442703          	lw	a4,-28(s0)
-   10128:	06300793          	li	a5,99
-   1012c:	fee7d6e3          	bge	a5,a4,10118 <main+0xc4>
-   10130:	f79ff06f          	j	100a8 <main+0x54>
+   10060:	fec42783          	lw	a5,-20(s0)
+   10064:	00ff6f33          	or	t5,t5,a5
+   10068:	001f7793          	andi	a5,t5,1
+   1006c:	fef42423          	sw	a5,-24(s0)
+   10070:	fec42783          	lw	a5,-20(s0)
+   10074:	02079463          	bnez	a5,1009c <main+0x48>
+   10078:	ffd00793          	li	a5,-3
+   1007c:	fef42223          	sw	a5,-28(s0)
+   10080:	fe042023          	sw	zero,-32(s0)
+   10084:	fe442783          	lw	a5,-28(s0)
+   10088:	00ff7f33          	and	t5,t5,a5
+   1008c:	002f6f13          	ori	t5,t5,2
+   10090:	000f0793          	mv	a5,t5
+   10094:	fcf42e23          	sw	a5,-36(s0)
+   10098:	fc9ff06f          	j	10060 <main+0xc>
+   1009c:	ffd00793          	li	a5,-3
+   100a0:	fef42223          	sw	a5,-28(s0)
+   100a4:	00100793          	li	a5,1
+   100a8:	fef42023          	sw	a5,-32(s0)
+   100ac:	fe442783          	lw	a5,-28(s0)
+   100b0:	00ff7f33          	and	t5,t5,a5
+   100b4:	000f6f13          	ori	t5,t5,0
+   100b8:	000f0793          	mv	a5,t5
+   100bc:	fcf42c23          	sw	a5,-40(s0)
+   100c0:	fa1ff06f          	j	10060 <main+0xc>
 ```
 # Distinctive assembly code instructions
 
@@ -181,6 +185,12 @@ lui
 # Output of the C program is shown below
 
 ![output trail](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/29d77cfc-01af-460d-bc74-e443109d0dc8)
+
+
+# Spike Simulation Results
+The output of the spike is shown below where sensor value =1, indicates Presence of Alcohol is detected and buzzer is turned on i.e buzzer =1, contrary to that if presence of alcohol is not detect buzzer is off, the image shows output as 2 whose binary equivalent is 10. 
+
+![spike_output](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/9c5ab018-9db1-4046-a99f-8b92c70a4639)
 
 # Functional Simulation's Conclusive Data
 
