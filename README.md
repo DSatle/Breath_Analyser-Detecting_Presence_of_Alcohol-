@@ -117,9 +117,8 @@ return 0;
 ```
 # Assembly level conversion
 
-riscv64-unknown-elf-gcc -march=rv64i -mabi=lp64 -ffreestanding -o out Alcohol.c
-spike pk out
-
+riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -ffreestanding -nostdlib -o ./out Alcohol.c
+riscv64-unknown-elf-objdump -d  -r out > Alcohol_Detector_assembly.txt
 
 
 # Assembly level Program
