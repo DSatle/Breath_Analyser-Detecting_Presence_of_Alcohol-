@@ -191,18 +191,15 @@ The output of the spike is shown below where sensor value =1, indicates Presence
 
 # Functional Simulation's Conclusive Data
 
-In the image below, it's evident that the ID_instructions' content is incrementing in a manner that mirrors the progression of the assembly code, aligning with the PC's execution increment
+The below image shows the change in output with respect to change in input. Low value of input indicates that the alcohol consumption is under permissable limmit  and buzzer is off i.e output is also low, contrary to that when the person has drunk above permissible limit output of the sensor which is input to the processor is high and buzzer is turned on.
 
-![3](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/d35501eb-488f-4644-a3f8-b7f69d190f2a)
+![Screenshot from 2023-10-27 16-48-03](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/e13d6654-412e-464d-9d82-c737463a2206)
 
-The image provided below demonstrates that when the "write done" signal is in a low state, the operation remains unexecuted since the instruction isn't fetched. As a result, any input variation does not affect the output, and it remains constant.
+Toggle in input is reflected in output as well.
 
-![2](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/5b49e79d-1468-4324-a9bc-8f91b2a04444)
+The below image shows clock of the system, top gpio pins, Instruction ID.
 
-The image reveals a variation in the output corresponding to changes in the input. This is attributed to the "write done" signal being in a high state, indicating that an instruction has been successfully fetched, and as a result, the operation is executed.
-When the input is in a high state, it signifies that the alcohol level surpasses the allowable limit, causing an increase in the output signal and subsequently turning on the buzzer.
-
-![1](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/ab849e74-53a4-431e-a3c5-dcc413741b79)
+![Screenshot from 2023-10-27 18-19-43](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/9a96bf9b-9483-4d8e-bbbd-ea495873a750)
 
 # Word of thanks
 
