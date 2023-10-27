@@ -213,7 +213,7 @@ I would also like to express my gratitude to Mayank Kabra for his invaluable con
 * https://github.com/SakethGajawada/RISCV-GNU
 * Pruthvi Parate, Colleague, IIIT Bangalore
 * Bhargav DV, Colleague, IIIT Bangalore
-* Niharika Vulchi, IIIT Bangalore
+* Koparthi Dinesh, IIIT Bangalore
 
 
 
