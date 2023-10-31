@@ -222,6 +222,17 @@ The input toggling is given for 500units in the testbench code, the same is refl
 
 ![Screenshot from 2023-10-31 12-12-23](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/40b88b1e-c7c2-431e-92d3-a4d01f7d6d20)
 
+The below image shows that input value is read at the instruction and corresponding value dumping in the output.
+
+
+| Input Instruction ID & Value  | Output Instruction ID & Value |
+| ------------- 		| ------------- |
+| 1 (FEF42423)  		| 1(02079463)  |
+
+![Screenshot from 2023-10-31 12-38-37](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/d6c2dd43-5e66-4f7c-abc1-847055b09477)
+
+
+
 
 # Word of thanks
 
