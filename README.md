@@ -201,6 +201,28 @@ The below image shows clock of the system, top gpio pins, Instruction ID.
 
 ![Screenshot from 2023-10-27 18-19-43](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/9a96bf9b-9483-4d8e-bbbd-ea495873a750)
 
+The below image shows increament in Instruction ID, which implies that execution of instructions from the program counter.
+
+![Screenshot from 2023-10-31 11-56-10](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/b8411d25-7cd0-4eb2-a863-84b1bacf1c59)
+
+The below image shows that with change in the instruction ID, when input changes output value is changed corresponding to that.
+
+![Screenshot from 2023-10-31 11-55-51](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/6ecde109-1713-4e62-9448-5c156b0d6e35)
+
+The below image having two markers marked showing the delay for output change with respect to change in input.
+
+![Screenshot from 2023-10-31 11-55-51](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/901e58f1-b2b9-4392-ad2c-b1310217ce5a)
+
+| Input value with time stamp| Output Value with time stamp | Delay|
+| :---                       |     :---:                    | ---: |
+| 1(4500Sec)                 |  1(4530Sec)                  |30 Sec|
+| 0(5000Sec)                 | 0(5050Sec)                   | 50Sec|
+
+The input toggling is given for 500units in the testbench code, the same is reflected in the waveform.
+
+![Screenshot from 2023-10-31 12-12-23](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/40b88b1e-c7c2-431e-92d3-a4d01f7d6d20)
+
+
 # Word of thanks
 
 I want to extend my appreciation to Kunal Ghosh(Founder & CEO VSD) for affording me the opportunity to learn about the ASIC design flow through his provision of high-quality educational materials.
