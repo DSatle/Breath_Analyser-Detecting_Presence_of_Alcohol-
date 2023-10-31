@@ -230,7 +230,46 @@ The below image shows that input value is read at the instruction and correspond
 
 ![Screenshot from 2023-10-31 12-38-37](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/d6c2dd43-5e66-4f7c-abc1-847055b09477)
 
+## Gate level Simulation
 
+To perform the gate level simulation following commands were used
+
+```
+read_liberty -lib sky130_fd_sc_hd__tt_025C_1v80_256.lib 
+read_verilog processor.v 
+synth -top wrapper
+dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib 
+abc -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib
+write_verilog Synth_test.v
+```
+To run the GLS command following commands were used 
+
+```
+iverilog -o test synth_processor_test.v testbench.v sky130_sram_1kbyte_1rw1r_32x256_8.v sky130_fd_sc_hd.v primitives.v
+```
+
+
+The same results i.e. output following input is replicated in the Gate level Simulation with instruction ID and delay.
+
+The first image shows the output following input.
+
+![1](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/bd26a9f4-0ee3-4cb1-8fa9-8d213a26df13)
+
+The below image includes instruction ID, write done signals as well.
+
+![2](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/05fc8713-9bf7-4059-996f-2aa4e7c4f87c)
+
+![3](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/bd30ebe5-b59a-417b-b8f2-77c400ac9459)
+
+The above two images shows a 20 sec delay which processor takes to ammend the output change with respect to input change, first output is rising after input rises, second output falls after input falls.
+# Netlist Generation
+To generate the netlist following commands were used 
+```
+show wrapper
+```
+Below image shows the netlist generated with highlighted wrapper module.
+
+![Screenshot from 2023-10-31 23-30-11](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/8b24a151-d99a-4d07-bfd2-efa151980253)
 
 
 # Word of thanks
