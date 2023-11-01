@@ -276,7 +276,7 @@ Below image shows the netlist generated with highlighted wrapper module.
 
 I want to extend my appreciation to Kunal Ghosh(Founder & CEO VSD) for affording me the opportunity to learn about the ASIC design flow through his provision of high-quality educational materials.
 
-I would also like to express my gratitude to Mayank Kabra for his invaluable contributions and insights during the project's completion.
+I would also like to express my gratitude to Mayank Kabra(Founder, Chipcron Pvt. Ltd.) for his invaluable contributions and insights during the project's completion.
 
 # References
 
