@@ -271,6 +271,57 @@ Below image shows the netlist generated with highlighted wrapper module.
 
 ![Screenshot from 2023-10-31 23-30-11](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/8b24a151-d99a-4d07-bfd2-efa151980253)
 
+# OpenLane
+
+To run Openlane following commands were used in the terminal.
+
+```
+make mount
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design project
+```
+![flow_interactive](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/9012fbf6-0558-445f-a161-da83a903f4cf)
+
+# Synthesis
+
+Synthesis is the process of transfering higher level of abstraction(RTL) to implementable lower level of abstraction. It is the process of transforming RTL to gate-level netlist.
+
+Synthesis = Translation + Logic Optimisation + Mapping
+
+```
+run_synthesis
+```
+
+![Screenshot from 2023-11-15 16-18-24](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/7559baaa-cd94-4bb2-b933-30eb381dda08)
+
+
+# Floorplan 
+
+Floor planning is the first step in the physical design flow. Floor Planning is a quintessential step which decides the layout of the VLSI design. A good floorplan can be make implementation process (place, cts, route & timing closure) cake walk.
+
+```
+run_floorplan
+```
+
+![Screenshot from 2023-11-15 16-30-57](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/cdcc57a5-7eec-4a1e-964c-58d10ffe3a32)
+
+# Placement 
+
+* Placement is the process of placing standard cell in the design, the tool determines the location of each standard cell on the die, the tool places these on basis of algorithm which it uses internally.
+
+* Placement does not just place the standard cells available in the synthesized netlist, it also optimizes the design, placement also determines the routability of the design.
+
+* Placement will be driven by the different criteria like timing driven, congestion driven and power optimisation.
+
+```
+run_placement
+```
+ ![Screenshot from 2023-11-15 16-32-28](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/f062dea8-aad3-4dac-9b81-bb9b1a25b9fc)
+
+ # 
+
+
 
 # Word of thanks
 
