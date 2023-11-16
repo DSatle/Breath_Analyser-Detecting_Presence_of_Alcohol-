@@ -372,6 +372,8 @@ run_routing
 
 
 
+
+
 # Word of thanks
 
 I want to extend my appreciation to Kunal Ghosh(Founder & CEO VSD) for affording me the opportunity to learn about the ASIC design flow through his provision of high-quality educational materials.
