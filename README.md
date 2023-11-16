@@ -339,19 +339,17 @@ run_placement
  ![Screenshot from 2023-11-15 16-32-28](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/f062dea8-aad3-4dac-9b81-bb9b1a25b9fc)
 
  # Clock Tree Synthesis
-
- Clock Tree Synthesis is a technique for distributing the clock equally among all sequential parts of a VLSI design. The purpose of Clock Tree Synthesis is to reduce skew and delay. 
-
+ 
+ Clock Tree Synthesis is a technique for distributing the clock equally among all sequential parts of a VLSI design. The purpose of Clock Tree Synthesis is to reduce skew and delay.
+ 
  ```
 run_cts
 ```
-
 Timing report is shown below
 
 ![Screenshot from 2023-11-16 21-21-42](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/aec69a4a-2c8c-4bda-ab79-dc8bfbfaaa8f)
 
 Power report is shown below
-
 
 ![Screenshot from 2023-11-16 21-29-50](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/21bc9a5e-7b3d-41c5-9835-363b83040a2e)
 
@@ -361,6 +359,15 @@ Power report is shown below
 * Routing creates physical connections to all clock and the signal pins through metal interconnects
 * After CTS, we have information about the exact location of placed cells, blockages, clock tree buffers/invertes I/O pins. The tool depends on this information to electrically complete all connections
 * In routing stage, metal and visas are used to create the electrical connection in layout, to complete all connetions defined by the netlist.
+```
+run_routing
+```
+![Screenshot from 2023-11-16 22-27-09](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/5f1ae80f-a069-4375-bec9-a80985899198)
+
+![Screenshot from 2023-11-16 22-30-16](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/c034c994-88e6-45f1-9a81-537396775d6b)
+
+![Screenshot from 2023-11-16 22-29-40](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/7fd29673-2a10-419b-b0b4-723ce2ebc843)
+
 
 
 
