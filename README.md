@@ -312,8 +312,16 @@ Floor planning is the first step in the physical design flow. Floor Planning is 
 ```
 run_floorplan
 ```
+![Screenshot from 2023-11-16 21-11-27](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/176c52c1-4f20-435e-b0aa-3a2799b5d9eb)
 
-![Screenshot from 2023-11-15 16-30-57](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/cdcc57a5-7eec-4a1e-964c-58d10ffe3a32)
+Die Area details are shown below
+
+![Screenshot from 2023-11-16 21-15-58](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/f5b8c943-b6ba-456c-bbdc-adca7d2bfe93)
+
+Core Area details
+
+![Screenshot from 2023-11-16 21-16-05](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/7160a307-ee39-436b-9673-43a9f89d168d)
+
 
 # Placement 
 
@@ -328,8 +336,22 @@ run_placement
 ```
  ![Screenshot from 2023-11-15 16-32-28](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/f062dea8-aad3-4dac-9b81-bb9b1a25b9fc)
 
- # 
+ # Clock Tree Synthesis
 
+ Clock Tree Synthesis is a technique for distributing the clock equally among all sequential parts of a VLSI design. The purpose of Clock Tree Synthesis is to reduce skew and delay. 
+
+ ```
+run_cts
+```
+
+Timing report is shown below
+
+![Screenshot from 2023-11-16 21-21-42](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/aec69a4a-2c8c-4bda-ab79-dc8bfbfaaa8f)
+
+Power report is shown below
+
+
+![Screenshot from 2023-11-16 21-29-50](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/21bc9a5e-7b3d-41c5-9835-363b83040a2e)
 
 
 # Word of thanks
