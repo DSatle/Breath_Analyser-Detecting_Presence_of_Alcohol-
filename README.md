@@ -283,6 +283,11 @@ prep -design project
 ```
 ![flow_interactive](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/9012fbf6-0558-445f-a161-da83a903f4cf)
 
+# Config.json
+
+![Screenshot from 2023-11-16 21-01-05](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/e7980598-9462-4c4a-b186-396dbbd810c8)
+
+
 # Synthesis
 
 Synthesis is the process of transfering higher level of abstraction(RTL) to implementable lower level of abstraction. It is the process of transforming RTL to gate-level netlist.
@@ -294,6 +299,10 @@ run_synthesis
 ```
 
 ![Screenshot from 2023-11-15 16-18-24](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/7559baaa-cd94-4bb2-b933-30eb381dda08)
+
+chip area after synthesis is shown below
+
+![Screenshot from 2023-11-16 21-07-00](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/23250351-2603-4c2c-a3de-af86dc69bfd2)
 
 
 # Floorplan 
