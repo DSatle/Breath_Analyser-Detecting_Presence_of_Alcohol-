@@ -367,7 +367,7 @@ Path Details
 
 ![Screenshot from 2023-11-16 21-29-50](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/21bc9a5e-7b3d-41c5-9835-363b83040a2e)
 
-# Routing 
+## Routing 
 
 * Routing is the stage after CTS, routing is nothing but connecting the various blocks with one another.
 * Routing creates physical connections to all clock and the signal pins through metal interconnects
@@ -378,6 +378,8 @@ run_routing
 ```
 ![Screenshot from 2023-11-16 22-27-09](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/5f1ae80f-a069-4375-bec9-a80985899198)
 
+# Layout 
+
 ![Screenshot from 2023-11-16 22-30-16](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/c034c994-88e6-45f1-9a81-537396775d6b)
 
 ![Screenshot from 2023-11-16 22-29-40](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/7fd29673-2a10-419b-b0b4-723ce2ebc843)
@@ -386,8 +388,21 @@ run_routing
 
 ![Screenshot from 2023-11-16 22-57-05](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/5ee52a9b-f7d9-4768-9fb1-922cf7fff8ac)
 
-![Screenshot from 2023-11-16 22-38-38](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/7835ebff-14a5-44e7-8ddd-7660830fd8c6)
+# Timing report
 
+![Screenshot from 2023-11-26 19-33-25](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/c62a2e2e-1ca8-4c58-9475-cac6b5fa9dc7)
+
+# Area report
+
+![Screenshot from 2023-11-26 19-40-22](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/5aac91b3-3461-46d0-b165-e004075f38ac)
+
+# Power report 
+
+![Screenshot from 2023-11-26 19-42-14](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/6fae5274-7652-45c6-a502-e1caf4f61093)
+
+# DRC Voilation 
+
+![Screenshot from 2023-11-16 22-38-38](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/7835ebff-14a5-44e7-8ddd-7660830fd8c6)
 
 # Word of thanks
 
