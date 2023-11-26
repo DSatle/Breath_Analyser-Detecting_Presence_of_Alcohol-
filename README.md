@@ -349,6 +349,12 @@ Timing report is shown below
 
 ![Screenshot from 2023-11-16 21-21-42](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/aec69a4a-2c8c-4bda-ab79-dc8bfbfaaa8f)
 
+![path_type_placement](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/577f0f87-ca7b-4817-9751-068b0d87b512)
+
+![area_cts](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/de872ee8-5029-40cf-b359-f6427e29eb9c)
+
+![skew_cts](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/d0aebce1-ad53-4d1c-9c65-fab2e31de3f1)
+
 Power report is shown below
 
 ![Screenshot from 2023-11-16 21-29-50](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/21bc9a5e-7b3d-41c5-9835-363b83040a2e)
