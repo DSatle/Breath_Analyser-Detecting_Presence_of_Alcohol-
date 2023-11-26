@@ -345,17 +345,23 @@ run_placement
  ```
 run_cts
 ```
-Timing report is shown below
+# Timing report 
 
 ![Screenshot from 2023-11-16 21-21-42](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/aec69a4a-2c8c-4bda-ab79-dc8bfbfaaa8f)
 
+Path Details
+
 ![path_type_placement](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/577f0f87-ca7b-4817-9751-068b0d87b512)
+
+# Area Report
 
 ![area_cts](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/de872ee8-5029-40cf-b359-f6427e29eb9c)
 
+# Skew Report
+
 ![skew_cts](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/d0aebce1-ad53-4d1c-9c65-fab2e31de3f1)
 
-Power report is shown below
+# Power report 
 
 ![Screenshot from 2023-11-16 21-29-50](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/21bc9a5e-7b3d-41c5-9835-363b83040a2e)
 
@@ -374,7 +380,7 @@ run_routing
 
 ![Screenshot from 2023-11-16 22-29-40](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/7fd29673-2a10-419b-b0b4-723ce2ebc843)
 
-Area Report
+# Area Report
 
 ![Screenshot from 2023-11-16 22-57-05](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/5ee52a9b-f7d9-4768-9fb1-922cf7fff8ac)
 
