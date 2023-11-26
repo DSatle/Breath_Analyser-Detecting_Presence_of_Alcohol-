@@ -404,6 +404,20 @@ run_routing
 
 ![Screenshot from 2023-11-16 22-38-38](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/7835ebff-14a5-44e7-8ddd-7660830fd8c6)
 
+## Perfomance Calculation
+
+Given a Clock period of 100ns in Json file , setup slack we got after routing is 9.90ns
+
+```
+                              1
+Max Performance =  ------------------------
+                     clock period - slack(setup)
+```
+
+```
+Max Performance = 0.01109 Ghz
+```
+
 # Word of thanks
 
 I want to extend my appreciation to Kunal Ghosh(Founder & CEO VSD) for affording me the opportunity to learn about the ASIC design flow through his provision of high-quality educational materials.
