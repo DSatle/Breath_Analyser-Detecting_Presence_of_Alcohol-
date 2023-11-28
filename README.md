@@ -77,7 +77,7 @@ int main()  {
             :"x30"
             );
             asm volatile(
-	    	"addi %0, x30, 0\n\t"
+	    	"addi %0, x30, 2\n\t"
 	    	:"=r"(Alcohol0)
 	    	:
 	    	:"x30"
@@ -93,7 +93,7 @@ int main()  {
           //  printf("Alcohol presence detected \n ");
             asm volatile( 
             "and x30,x30, %0\n\t"     // Load immediate 1 into x30
-            "ori x30, x30,0"            //// output at 2nd bit , switches on the buzzer
+            "ori x30, x30,2"            //// output at 2nd bit , switches on the buzzer
             :
             :"r"(masking)
             :"x30"
