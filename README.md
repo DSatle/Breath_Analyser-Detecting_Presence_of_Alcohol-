@@ -417,6 +417,9 @@ Max Performance =  ------------------------
 ```
 Max Performance = 0.01109 Ghz
 ```
+## Magic Commands
+
+![ASIC](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/c1fd7490-e3b1-4ce9-aab3-46fd2161556c)
 
 # Word of thanks
 
