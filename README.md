@@ -309,8 +309,7 @@ chip area after synthesis is shown below
 
 Floor planning is the first step in the physical design flow. Floor Planning is a quintessential step which decides the layout of the VLSI design. A good floorplan can be make implementation process (place, cts, route & timing closure) cake walk.
 
-![Screenshot from 2023-11-16 22-15-27](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/9d5fda13-1a50-4b1c-b799-4991cc851223)
-
+![Screenshot 2023-12-08 195648](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/e846b504-bbfd-40e1-9606-ea34c7f792ca)
 ```
 run_floorplan
 ```
