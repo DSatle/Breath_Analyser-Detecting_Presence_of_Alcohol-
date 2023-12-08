@@ -313,7 +313,7 @@ Floor planning is the first step in the physical design flow. Floor Planning is 
 ```
 run_floorplan
 ```
-![Screenshot from 2023-11-16 21-11-27](https://github.com/DSatle/Breath_Analyser-Detecting_Presence_of_Alcohol-/assets/140998466/176c52c1-4f20-435e-b0aa-3a2799b5d9eb)
+
 
 Die Area details are shown below
 
