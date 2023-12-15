@@ -414,7 +414,7 @@ Max Performance =  ------------------------
 ```
 
 ```
-Max Performance = 0.01109 Ghz
+Max Performance = 11.09 Mhz
 ```
 ## Magic Commands
 
